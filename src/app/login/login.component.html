@@ -1,0 +1,46 @@
+<div class="login-container">
+    <div class="login-login-card">
+        <div class="login-form-container">
+            <form name="form" (ngSubmit)="f.form.valid && login(f)" #f="ngForm" novalidate>
+                <div class="login-fields">
+                    <input #email="ngModel"
+                           placeholder="email"
+                           type="email"
+                           id="email"
+                           name="email"
+                           required
+                           [ngModel]="model.email"
+                           [ngClass]="{ 'has-error': f.submitted && !email.valid }"
+                    >
+                    <div *ngIf="f.submitted && !email.valid" class="login-error-msg">
+                        {{loginConstant.EMAIL_REQUIRED}}
+                    </div>
+                </div>
+                <div class="login-fields" >
+                    <input #password="ngModel"
+                           placeholder="password"
+                           type="password"
+                           id="password"
+                           name="password"
+                           required
+                           [ngModel]="model.password"
+                           [ngClass]="{ 'has-error': f.submitted && !password.valid }"
+                    >
+                    <div *ngIf="f.submitted && !password.valid" class="login-error-msg">
+                        {{ loginConstant.PASSWORD_REQUIRED }}
+                    </div>
+                </div>
+                <div class="login-fields">
+                    <button type="submit" [disabled]="loading">
+                        {{ loginConstant.LOGIN }}
+                    </button>
+                </div>
+                <div>
+                    <a routerLink="/register" routerLinkActive="active" > Sign Up Here
+
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
