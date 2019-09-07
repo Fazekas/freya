@@ -1,0 +1,70 @@
+<div>
+    <div>
+        <form name="'registrationform">
+            <div name="firstNameDiv">
+                <label name="firstName">First Name: </label>
+                <!--[ngClass]="{ 'has-error': f.submitted && !email.valid }"-->
+                <input
+                        #email="ngModel"
+                        type="string"
+                        id="firstName"
+                        name="firstName"
+                        required
+                        [ngModel]="model.firstName"
+                >
+            </div>
+            <div name="lastName">
+                <label name="lastName">Last Name: </label>
+                <!--[ngClass]="{ 'has-error': f.submitted && !email.valid }"-->
+                <input
+                        #email="ngModel"
+                        type="string"
+                        id="lastName"
+                        name="lastName"
+                        required
+                        [ngModel]="model.lasttName"
+                >
+
+            </div>
+            <div>
+                <label name="email">Email: </label>
+                <!--[ngClass]="{ 'has-error': f.submitted && !email.valid }"-->
+                <input
+                        #email="ngModel"
+                        type="email"
+                        id="email"
+                        name="emaile"
+                        required
+                        [ngModel]="model.email"
+                >
+            </div>
+            <div>
+                <label name="password">Password: </label>
+                <!--[ngClass]="{ 'has-error': f.submitted && !email.valid }"-->
+                <input
+                        #email="ngModel"
+                        type="string"
+                        id="password"
+                        name="password"
+                        required
+                        [ngModel]="model.password"
+                >
+            </div>
+            <div>
+                <label name="confirmPassword">Confirm Pass: </label>
+                <!--[ngClass]="{ 'has-error': f.submitted && !email.valid }"-->
+                <input
+                        #email="ngModel"
+                        type="string"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        required
+                        [ngModel]="model.confirmPassword"
+                >
+            </div>
+            <div>
+
+            </div>
+        </form>
+    </div>
+</div>
