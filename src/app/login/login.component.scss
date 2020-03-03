@@ -19,7 +19,7 @@
   position: relative;
 }
 
-.login-form-container{
+.login-form-container {
   top: 31%;
   position: relative;
   text-align: center;
@@ -28,7 +28,15 @@
 .login-fields {
   padding-bottom: 10px;
 }
-.login-error-msg{
+
+.login-error-msg {
   font-size: 13px;
   font-family: monospace;
+}
+
+.login-outerContainer {
+  .login-innerContainer {
+    justify-content: center;
+    margin: auto;
+  }
 }

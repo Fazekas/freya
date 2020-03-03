@@ -3,8 +3,9 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service';
 import {Router} from '@angular/router';
 import {Observable, of, Subscription} from 'rxjs';
-import {LoginObj} from '../type.def';
+import {LoginObj, RegisterObj} from '../type.def';
 import {UrlService} from './url.service';
+import {first, mergeMap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +42,13 @@ export class HttpInterceptorService {
         }, err => {
             // login failed stay on login page or redirect back to login
         });
+    }
+
+    public register(urlString: string, registerParams: RegisterObj) {
+      return this.http.post(urlString, registerParams ).subscribe((registerResponse) => {
+          debugger;
+          this.router.navigateByUrl('login');
+      });
+
     }
 }

@@ -1,70 +1,99 @@
-<div>
-    <div>
-        <form name="'registrationform">
-            <div name="firstNameDiv">
-                <label name="firstName">First Name: </label>
-                <!--[ngClass]="{ 'has-error': f.submitted && !email.valid }"-->
-                <input
-                        #email="ngModel"
-                        type="string"
-                        id="firstName"
-                        name="firstName"
-                        required
-                        [ngModel]="model.firstName"
-                >
-            </div>
-            <div name="lastName">
-                <label name="lastName">Last Name: </label>
-                <!--[ngClass]="{ 'has-error': f.submitted && !email.valid }"-->
-                <input
-                        #email="ngModel"
-                        type="string"
-                        id="lastName"
-                        name="lastName"
-                        required
-                        [ngModel]="model.lasttName"
-                >
+<div class="register-page">
+    <div class="register-card">
+        <div class="register-form-container">
+            <form name="registration-form" #f="ngForm" (ngSubmit)="isFormValid(f)">
+                <h4 class="register-form-title">
+                    {{ registerConstant.REGISTER_PAGE }}
+                </h4>
+                <table class="register-form-field">
+                    <tr>
+                        <td>
+                            <label >
+                                {{ registerConstant.USERNAME }}
+                            </label>
+                        </td>
+                        <td>
+                            <input #userName="ngModel"
+                                   type="text"
+                                   id="userName"
+                                   name="userName"
+                                   required
+                                   [ngModel]="model.userName"
+                                   [ngClass]="{'has-error' : f.submitted && !userName.valid}"
+                            >
+                            <div *ngIf="f.submitted && !userName.valid" class="register-error-msg">
+                                {{ registerConstant.USERNAME_REQUIRED }}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                {{ registerConstant.EMAIL }}
+                            </label>
+                        </td>
+                        <td>
+                            <input #email="ngModel"
+                                   type="text"
+                                   id = "email"
+                                   name="email"
+                                   required
+                                   [ngModel]="model.email"
+                                   [ngClass]="{'has-error': f.submitted && !email.valid}"
+                            >
+                            <div *ngIf="f.submitted && !email.valid" class="register-error-msg">
+                                {{ registerConstant.EMAIL_REQUIRED }}
+                            </div>
+                        </td>
+                    </tr>
 
-            </div>
-            <div>
-                <label name="email">Email: </label>
-                <!--[ngClass]="{ 'has-error': f.submitted && !email.valid }"-->
-                <input
-                        #email="ngModel"
-                        type="email"
-                        id="email"
-                        name="emaile"
-                        required
-                        [ngModel]="model.email"
-                >
-            </div>
-            <div>
-                <label name="password">Password: </label>
-                <!--[ngClass]="{ 'has-error': f.submitted && !email.valid }"-->
-                <input
-                        #email="ngModel"
-                        type="string"
-                        id="password"
-                        name="password"
-                        required
-                        [ngModel]="model.password"
-                >
-            </div>
-            <div>
-                <label name="confirmPassword">Confirm Pass: </label>
-                <!--[ngClass]="{ 'has-error': f.submitted && !email.valid }"-->
-                <input
-                        #email="ngModel"
-                        type="string"
-                        id="confirmPassword"
-                        name="confirmPassword"
-                        required
-                        [ngModel]="model.confirmPassword"
-                >
-            </div>
-            <div>
-
-            </div>
-        </form>
+                    <tr>
+                        <td>
+                            <label>
+                                {{ registerConstant.PASSWORD }}
+                            </label>
+                        </td>
+                        <td>
+                            <input #password="ngModel"
+                                   type="password"
+                                   id = "password"
+                                   name="password"
+                                   required
+                                   [ngModel]="model.password"
+                                   [ngClass]="{'has-error': f.submitted && !password.valid}"
+                            >
+                            <div *ngIf="f.submitted && !password.valid" class="register-error-msg">
+                                {{ registerConstant.PASSWORD_REQUIRED }}
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                {{ registerConstant.CONFIRM_PASSWORD }}
+                            </label>
+                        </td>
+                        <td>
+                            <input #confirmPassword="ngModel"
+                                   type="password"
+                                   id = "confirmPassword"
+                                   name="confirmPassword"
+                                   required
+                                   [ngModel]="model.confirmPassword"
+                                   [ngClass]="{'has-error': f.submitted && !confirmPassword.valid && password !== confirmPassword }"
+                            >
+                            <div *ngIf="f.submitted && !confirmPassword !== password" class="register-error-msg">
+                                {{ registerConstant.PASSWORD_MISMATCH }}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+                <div class="register-submit-container">
+                    <button type="submit" class="register-btn">
+                        {{ registerConstant.REGISTER }}
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
